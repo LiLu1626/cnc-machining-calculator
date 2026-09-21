@@ -1,12 +1,13 @@
+
 function calculateSpindleSpeed() {
     const diameterInput = document.getElementById("diameter");
     const cuttingSpeedInput = document.getElementById("cuttingSpeed");
     const result = document.getElementById("spindleResult");
-
+    
     const diameter = parseFloat(diameterInput.value);
     const cuttingSpeed = parseFloat(cuttingSpeedInput.value);
 
-    if (!Number.isFinite(diameter) || !Number.isFinite(cuttingSpeed)) {
+    if (diameterInput.value === "" || cuttingSpeedInput.value === "") {
         result.textContent = "Please enter all required values.";
         return;
     }
@@ -24,7 +25,8 @@ function calculateSpindleSpeed() {
     const spindleSpeed =
         (1000 * cuttingSpeed) / (Math.PI * diameter);
 
-    result.textContent = `${spindleSpeed.toFixed(0)} RPM`;
+    result.textContent =
+        `${spindleSpeed.toFixed(0)} RPM`;
 }
 
 
