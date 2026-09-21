@@ -1,263 +1,178 @@
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial, Helvetica, sans-serif;
-    background: #f4f6f8;
-    color: #1f2933;
-    line-height: 1.6;
-}
-
-
-/* =========================
-   Header
-========================= */
-
-header {
-    text-align: center;
-    padding: 60px 20px 45px;
-    background: #ffffff;
-    border-bottom: 1px solid #e1e5e9;
-}
-
-header h1 {
-    font-size: 38px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    margin-bottom: 10px;
-}
-
-header p {
-    color: #667085;
-    font-size: 16px;
-}
-
-
-/* =========================
-   Calculator Layout
-========================= */
-
-main {
-    width: min(1100px, 92%);
-    margin: 45px auto;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 28px;
-}
-
-
-/* =========================
-   Calculator Card
-========================= */
-
-.calculator-card {
-    background: #ffffff;
-    padding: 32px;
-    border-radius: 14px;
-    border: 1px solid #e1e5e9;
-    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.05);
-
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.calculator-card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
-}
-
-.calculator-card h2 {
-    font-size: 23px;
-    font-weight: 700;
-    margin-bottom: 25px;
-}
-
-
-/* =========================
-   Input Groups
-========================= */
-
-.input-group {
-    margin-bottom: 18px;
-}
-
-.input-group label {
-    display: block;
-    margin-bottom: 7px;
-    font-size: 14px;
-    font-weight: 600;
-    color: #344054;
-}
-
-.input-group input {
-    width: 100%;
-    padding: 13px 14px;
-
-    border: 1px solid #cbd2d9;
-    border-radius: 8px;
-
-    background: #ffffff;
-    color: #1f2933;
-
-    font-size: 16px;
-
-    outline: none;
-
-    transition:
-        border-color 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-.input-group input:hover {
-    border-color: #98a2b3;
-}
-
-.input-group input:focus {
-    border-color: #344054;
-
-    box-shadow:
-        0 0 0 3px rgba(52, 64, 84, 0.08);
-}
-
-
-/* Remove number input arrows */
-
-.input-group input::-webkit-outer-spin-button,
-.input-group input::-webkit-inner-spin-button {
-    margin: 0;
-}
-
-
-/* =========================
-   Calculate Button
-========================= */
-
-button {
-    width: 100%;
-
-    padding: 13px;
-
-    border: none;
-    border-radius: 8px;
-
-    background: #1f2933;
-    color: #ffffff;
-
-    font-size: 16px;
-    font-weight: 600;
-
-    cursor: pointer;
-
-    transition:
-        transform 0.2s ease,
-        background 0.2s ease,
-        box-shadow 0.2s ease;
-}
-
-button:hover {
-    background: #111827;
-
-    transform: translateY(-1px);
-
-    box-shadow:
-        0 4px 10px rgba(0, 0, 0, 0.15);
-}
-
-button:active {
-    transform: translateY(0);
-}
-
-
-/* =========================
-   Result
-========================= */
-
-.result {
-    margin-top: 18px;
-
-    padding: 15px 16px;
-
-    background: #f4f6f8;
-
-    border: 1px solid #e4e7ec;
-
-    border-radius: 8px;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    gap: 10px;
-}
-
-.result span {
-    font-size: 14px;
-    color: #667085;
-}
-
-.result strong {
-    font-size: 18px;
-    font-weight: 700;
-    color: #1f2933;
-}
-
-
-/* =========================
-   Footer
-========================= */
-
-footer {
-    text-align: center;
-
-    padding: 30px 20px 45px;
-
-    color: #667085;
-
-    font-size: 14px;
-}
-
-
-/* =========================
-   Mobile
-========================= */
-
-@media (max-width: 700px) {
-
-    header {
-        padding: 40px 20px 30px;
+function calculateSpindleSpeed() {
+    const diameter = parseFloat(
+        document.getElementById("diameter").value
+    );
+
+    const cuttingSpeed = parseFloat(
+        document.getElementById("cuttingSpeed").value
+    );
+
+    if (diameter <= 0 || cuttingSpeed <= 0) {
+        document.getElementById("spindleResult").textContent =
+            "Enter valid values";
+        return;
     }
 
-    header h1 {
-        font-size: 30px;
+    const spindleSpeed =
+        (1000 * cuttingSpeed) / (Math.PI * diameter);
+
+    document.getElementById("spindleResult").textContent =
+        `${spindleSpeed.toFixed(0)} RPM`;
+}
+
+
+function calculateFeedRate() {
+    const feedPerTooth = parseFloat(
+        document.getElementById("feedRatePerTooth").value
+    );
+
+    const numberOfTeeth = parseFloat(
+        document.getElementById("feedRateNumberOfTeeth").value
+    );
+
+    const spindleSpeed = parseFloat(
+        document.getElementById("feedRateSpindleSpeed").value
+    );
+
+    if (
+        feedPerTooth <= 0 ||
+        numberOfTeeth <= 0 ||
+        spindleSpeed <= 0
+    ) {
+        document.getElementById("feedResult").textContent =
+            "Enter valid values";
+        return;
     }
 
-    header p {
-        font-size: 15px;
+    const feedRate =
+        feedPerTooth * numberOfTeeth * spindleSpeed;
+
+    document.getElementById("feedResult").textContent =
+        `${feedRate.toFixed(0)} mm/min`;
+}
+
+
+function calculateFeedPerTooth() {
+    const feedRate = parseFloat(
+        document.getElementById("fptFeedRate").value
+    );
+
+    const numberOfTeeth = parseFloat(
+        document.getElementById("fptNumberOfTeeth").value
+    );
+
+    const spindleSpeed = parseFloat(
+        document.getElementById("fptSpindleSpeed").value
+    );
+
+    if (
+        feedRate <= 0 ||
+        numberOfTeeth <= 0 ||
+        spindleSpeed <= 0
+    ) {
+        document.getElementById("feedPerToothResult").textContent =
+            "Enter valid values";
+        return;
     }
 
-    main {
-        width: 92%;
+    const feedPerTooth =
+        feedRate / (numberOfTeeth * spindleSpeed);
 
-        margin-top: 30px;
+    document.getElementById("feedPerToothResult").textContent =
+        `${feedPerTooth.toFixed(3)} mm/tooth`;
+}
 
-        grid-template-columns: 1fr;
 
-        gap: 20px;
+function calculateCuttingSpeed() {
+    const diameter = parseFloat(
+        document.getElementById("cuttingDiameter").value
+    );
+
+    const spindleSpeed = parseFloat(
+        document.getElementById("cuttingSpindleSpeed").value
+    );
+
+    if (diameter <= 0 || spindleSpeed <= 0) {
+        document.getElementById("cuttingResult").textContent =
+            "Enter valid values";
+        return;
     }
 
-    .calculator-card {
-        padding: 24px;
+    const cuttingSpeed =
+        (Math.PI * diameter * spindleSpeed) / 1000;
+
+    document.getElementById("cuttingResult").textContent =
+        `${cuttingSpeed.toFixed(1)} m/min`;
+}
+
+
+function calculateMRR() {
+    const widthOfCut = parseFloat(
+        document.getElementById("widthOfCut").value
+    );
+
+    const depthOfCut = parseFloat(
+        document.getElementById("depthOfCut").value
+    );
+
+    const feedRate = parseFloat(
+        document.getElementById("mrrFeedRate").value
+    );
+
+    if (
+        widthOfCut <= 0 ||
+        depthOfCut <= 0 ||
+        feedRate <= 0
+    ) {
+        document.getElementById("mrrResult").textContent =
+            "Enter valid values";
+        return;
     }
 
-    .calculator-card h2 {
-        font-size: 21px;
+    const mrr =
+        widthOfCut * depthOfCut * feedRate;
+
+    document.getElementById("mrrResult").textContent =
+        `${mrr.toFixed(0)} mm³/min`;
+}
+
+
+function calculateDrillingParameters() {
+    const diameter = parseFloat(
+        document.getElementById("drillDiameter").value
+    );
+
+    const cuttingSpeed = parseFloat(
+        document.getElementById("drillCuttingSpeed").value
+    );
+
+    const feedPerRevolution = parseFloat(
+        document.getElementById("drillFeedPerRevolution").value
+    );
+
+    if (
+        diameter <= 0 ||
+        cuttingSpeed <= 0 ||
+        feedPerRevolution <= 0
+    ) {
+        document.getElementById("drillSpindleResult").textContent =
+            "Enter valid values";
+
+        document.getElementById("drillFeedResult").textContent =
+            "Enter valid values";
+
+        return;
     }
 
-    .result {
-        padding: 14px;
-    }
+    const spindleSpeed =
+        (1000 * cuttingSpeed) / (Math.PI * diameter);
+
+    const feedRate =
+        feedPerRevolution * spindleSpeed;
+
+    document.getElementById("drillSpindleResult").textContent =
+        `${spindleSpeed.toFixed(0)} RPM`;
+
+    document.getElementById("drillFeedResult").textContent =
+        `${feedRate.toFixed(0)} mm/min`;
 }
