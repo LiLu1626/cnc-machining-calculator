@@ -3,11 +3,20 @@ function calculateSpindleSpeed() {
     const cuttingSpeedInput = document.getElementById("cuttingSpeed");
     const result = document.getElementById("spindleResult");
 
+    console.log("Diameter:", diameterInput);
+    console.log("Diameter value:", diameterInput.value);
+
+    console.log("Cutting Speed:", cuttingSpeedInput);
+    console.log("Cutting Speed value:", cuttingSpeedInput.value);
+
     const diameter = parseFloat(diameterInput.value);
     const cuttingSpeed = parseFloat(cuttingSpeedInput.value);
 
-    if (diameterInput.value === "" || cuttingSpeedInput.value === "") {
-        result.textContent = "Please enter all required values.";
+    console.log("Diameter number:", diameter);
+    console.log("Cutting Speed number:", cuttingSpeed);
+
+    if (isNaN(diameter) || isNaN(cuttingSpeed)) {
+        result.textContent = "Invalid input.";
         return;
     }
 
@@ -27,7 +36,6 @@ function calculateSpindleSpeed() {
     result.textContent =
         `${spindleSpeed.toFixed(0)} RPM`;
 }
-
 
 function calculateFeedRate() {
     const feedPerToothInput =
