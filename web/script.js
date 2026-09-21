@@ -6,10 +6,7 @@ function calculateSpindleSpeed() {
     const diameter = parseFloat(diameterInput.value);
     const cuttingSpeed = parseFloat(cuttingSpeedInput.value);
 
-    if (
-        diameterInput.value === "" ||
-        cuttingSpeedInput.value === ""
-    ) {
+    if (!Number.isFinite(diameter) || !Number.isFinite(cuttingSpeed)) {
         result.textContent = "Please enter all required values.";
         return;
     }
@@ -27,8 +24,7 @@ function calculateSpindleSpeed() {
     const spindleSpeed =
         (1000 * cuttingSpeed) / (Math.PI * diameter);
 
-    result.textContent =
-        `${spindleSpeed.toFixed(0)} RPM`;
+    result.textContent = `${spindleSpeed.toFixed(0)} RPM`;
 }
 
 
@@ -55,9 +51,9 @@ function calculateFeedRate() {
         parseFloat(spindleSpeedInput.value);
 
     if (
-        feedPerToothInput.value === "" ||
-        numberOfTeethInput.value === "" ||
-        spindleSpeedInput.value === ""
+        !Number.isFinite(feedPerTooth) ||
+        !Number.isFinite(numberOfTeeth) ||
+        !Number.isFinite(spindleSpeed)
     ) {
         result.textContent =
             "Please enter all required values.";
@@ -113,9 +109,9 @@ function calculateFeedPerTooth() {
         parseFloat(spindleSpeedInput.value);
 
     if (
-        feedRateInput.value === "" ||
-        numberOfTeethInput.value === "" ||
-        spindleSpeedInput.value === ""
+        !Number.isFinite(feedRate) ||
+        !Number.isFinite(numberOfTeeth) ||
+        !Number.isFinite(spindleSpeed)
     ) {
         result.textContent =
             "Please enter all required values.";
@@ -165,8 +161,8 @@ function calculateCuttingSpeed() {
         parseFloat(spindleSpeedInput.value);
 
     if (
-        diameterInput.value === "" ||
-        spindleSpeedInput.value === ""
+        !Number.isFinite(diameter) ||
+        !Number.isFinite(spindleSpeed)
     ) {
         result.textContent =
             "Please enter all required values.";
@@ -216,9 +212,9 @@ function calculateMRR() {
         parseFloat(feedRateInput.value);
 
     if (
-        widthOfCutInput.value === "" ||
-        depthOfCutInput.value === "" ||
-        feedRateInput.value === ""
+        !Number.isFinite(widthOfCut) ||
+        !Number.isFinite(depthOfCut) ||
+        !Number.isFinite(feedRate)
     ) {
         result.textContent =
             "Please enter all required values.";
@@ -277,9 +273,9 @@ function calculateDrillingParameters() {
         parseFloat(feedPerRevolutionInput.value);
 
     if (
-        diameterInput.value === "" ||
-        cuttingSpeedInput.value === "" ||
-        feedPerRevolutionInput.value === ""
+        !Number.isFinite(diameter) ||
+        !Number.isFinite(cuttingSpeed) ||
+        !Number.isFinite(feedPerRevolution)
     ) {
         spindleResult.textContent =
             "Please enter all required values.";
