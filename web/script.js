@@ -30,32 +30,59 @@ function calculateSpindleSpeed() {
 
 
 function calculateFeedRate() {
-    const feedPerTooth = parseFloat(
-        document.getElementById("feedRatePerTooth").value
-    );
+    const feedPerToothInput =
+        document.getElementById("feedRatePerTooth");
 
-    const numberOfTeeth = parseFloat(
-        document.getElementById("feedRateNumberOfTeeth").value
-    );
+    const numberOfTeethInput =
+        document.getElementById("feedRateNumberOfTeeth");
 
-    const spindleSpeed = parseFloat(
-        document.getElementById("feedRateSpindleSpeed").value
-    );
+    const spindleSpeedInput =
+        document.getElementById("feedRateSpindleSpeed");
+
+    const result =
+        document.getElementById("feedResult");
+
+    const feedPerTooth =
+        parseFloat(feedPerToothInput.value);
+
+    const numberOfTeeth =
+        parseFloat(numberOfTeethInput.value);
+
+    const spindleSpeed =
+        parseFloat(spindleSpeedInput.value);
 
     if (
-        feedPerTooth <= 0 ||
-        numberOfTeeth <= 0 ||
-        spindleSpeed <= 0
+        feedPerToothInput.value === "" ||
+        numberOfTeethInput.value === "" ||
+        spindleSpeedInput.value === ""
     ) {
-        document.getElementById("feedResult").textContent =
-            "Enter valid values";
+        result.textContent =
+            "Please enter all required values.";
+        return;
+    }
+
+    if (feedPerTooth <= 0) {
+        result.textContent =
+            "Feed per tooth must be greater than 0.";
+        return;
+    }
+
+    if (numberOfTeeth <= 0) {
+        result.textContent =
+            "Number of teeth must be greater than 0.";
+        return;
+    }
+
+    if (spindleSpeed <= 0) {
+        result.textContent =
+            "Spindle speed must be greater than 0.";
         return;
     }
 
     const feedRate =
         feedPerTooth * numberOfTeeth * spindleSpeed;
 
-    document.getElementById("feedResult").textContent =
+    result.textContent =
         `${feedRate.toFixed(0)} mm/min`;
 }
 
