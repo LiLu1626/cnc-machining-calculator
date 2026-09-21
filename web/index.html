@@ -75,6 +75,13 @@
                 <strong>F = fz × z × n</strong>
             </div>
 
+            <div class="parameter-info">
+                <p><strong>F</strong> = Feed Rate (mm/min)</p>
+                <p><strong>fz</strong> = Feed per Tooth (mm/tooth)</p>
+                <p><strong>z</strong> = Number of Teeth</p>
+                <p><strong>n</strong> = Spindle Speed (RPM)</p>
+            </div>
+
             <div class="input-group">
                 <label for="feedRatePerTooth">Feed per Tooth (mm/tooth)</label>
                 <input
@@ -122,6 +129,13 @@
             <div class="formula">
                 <span>Formula</span>
                 <strong>fz = F / (z × n)</strong>
+            </div>
+
+            <div class="parameter-info">
+                <p><strong>fz</strong> = Feed per Tooth (mm/tooth)</p>
+                <p><strong>F</strong> = Feed Rate (mm/min)</p>
+                <p><strong>z</strong> = Number of Teeth</p>
+                <p><strong>n</strong> = Spindle Speed (RPM)</p>
             </div>
 
             <div class="input-group">
@@ -173,6 +187,12 @@
                 <strong>Vc = (π × D × n) / 1000</strong>
             </div>
 
+            <div class="parameter-info">
+                <p><strong>Vc</strong> = Cutting Speed (m/min)</p>
+                <p><strong>D</strong> = Diameter (mm)</p>
+                <p><strong>n</strong> = Spindle Speed (RPM)</p>
+            </div>
+
             <div class="input-group">
                 <label for="cuttingDiameter">Diameter (mm)</label>
                 <input
@@ -211,6 +231,13 @@
             <div class="formula">
                 <span>Formula</span>
                 <strong>MRR = ap × ae × F</strong>
+            </div>
+
+            <div class="parameter-info">
+                <p><strong>MRR</strong> = Material Removal Rate (mm³/min)</p>
+                <p><strong>ap</strong> = Depth of Cut (mm)</p>
+                <p><strong>ae</strong> = Width of Cut (mm)</p>
+                <p><strong>F</strong> = Feed Rate (mm/min)</p>
             </div>
 
             <div class="input-group">
@@ -262,10 +289,22 @@
                 <strong>n = (1000 × Vc) / (π × D)</strong>
             </div>
             
-            <div class="formula">
-                <span>Feed Rate Formula</span>
-                <strong>F = fn × n</strong>
+            <div class="parameter-info">
+                <p><strong>n</strong> = Spindle Speed (RPM)</p>
+                <p><strong>Vc</strong> = Cutting Speed (m/min)</p>
+                <p><strong>D</strong> = Drill Diameter (mm)</p>
             </div>
+
+<div class="formula">
+    <span>Feed Rate Formula</span>
+    <strong>F = fn × n</strong>
+</div>
+
+<div class="parameter-info">
+    <p><strong>F</strong> = Feed Rate (mm/min)</p>
+    <p><strong>fn</strong> = Feed per Revolution (mm/rev)</p>
+    <p><strong>n</strong> = Spindle Speed (RPM)</p>
+</div>
 
             <div class="input-group">
                 <label for="drillDiameter">Drill Diameter (mm)</label>
