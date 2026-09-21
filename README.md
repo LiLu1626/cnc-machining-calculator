@@ -1,9 +1,15 @@
 # CNC Machining Calculator
 
+[![Python Tests](https://github.com/lilu1626/cnc-machining-calculator/actions/workflows/python-app.yml/badge.svg)](https://github.com/lilu1626/cnc-machining-calculator/actions/workflows/python-app.yml)
+[![GitHub Pages](https://github.com/lilu1626/cnc-machining-calculator/actions/workflows/pages.yml/badge.svg)](https://github.com/lilu1626/cnc-machining-calculator/actions/workflows/pages.yml)
+[![Python](https://img.shields.io/badge/Python-3.12-blue)](https://www.python.org/)
+[![HTML](https://img.shields.io/badge/Web-HTML%2FCSS%2FJavaScript-orange)](https://developer.mozilla.org/)
+
 Engineering calculators for CNC machining parameters, developed as a practical engineering tool and portfolio project.
 
-**Live Demo:**
-https://lilu1626.github.io/cnc-machining-calculator/
+## 🚀 Live Demo
+Try the calculator directly in your browser:
+👉 **https://lilu1626.github.io/cnc-machining-calculator/**
 
 ---
 
