@@ -1,4 +1,3 @@
-
 function calculateSpindleSpeed() {
     const diameterInput = document.getElementById("diameter");
     const cuttingSpeedInput = document.getElementById("cuttingSpeed");
