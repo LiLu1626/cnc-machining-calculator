@@ -2,7 +2,7 @@ function calculateSpindleSpeed() {
     const diameterInput = document.getElementById("diameter");
     const cuttingSpeedInput = document.getElementById("cuttingSpeed");
     const result = document.getElementById("spindleResult");
-    
+
     const diameter = parseFloat(diameterInput.value);
     const cuttingSpeed = parseFloat(cuttingSpeedInput.value);
 
