@@ -6,7 +6,10 @@ function calculateSpindleSpeed() {
     const diameter = parseFloat(diameterInput.value);
     const cuttingSpeed = parseFloat(cuttingSpeedInput.value);
 
-    if (diameterInput.value === "" || cuttingSpeedInput.value === "") {
+    if (
+        diameterInput.value === "" ||
+        cuttingSpeedInput.value === ""
+    ) {
         result.textContent = "Please enter all required values.";
         return;
     }
@@ -51,7 +54,6 @@ function calculateFeedRate() {
     const spindleSpeed =
         parseFloat(spindleSpeedInput.value);
 
-    // Check empty fields
     if (
         feedPerToothInput.value === "" ||
         numberOfTeethInput.value === "" ||
@@ -62,28 +64,24 @@ function calculateFeedRate() {
         return;
     }
 
-    // Check Feed per Tooth
     if (feedPerTooth <= 0) {
         result.textContent =
             "Feed per tooth must be greater than 0.";
         return;
     }
 
-    // Check Number of Teeth
     if (numberOfTeeth <= 0) {
         result.textContent =
             "Number of teeth must be greater than 0.";
         return;
     }
 
-    // Check Spindle Speed
     if (spindleSpeed <= 0) {
         result.textContent =
             "Spindle speed must be greater than 0.";
         return;
     }
 
-    // Calculate Feed Rate
     const feedRate =
         feedPerTooth * numberOfTeeth * spindleSpeed;
 
@@ -92,96 +90,246 @@ function calculateFeedRate() {
 }
 
 
+function calculateFeedPerTooth() {
+    const feedRateInput =
+        document.getElementById("fptFeedRate");
+
+    const numberOfTeethInput =
+        document.getElementById("fptNumberOfTeeth");
+
+    const spindleSpeedInput =
+        document.getElementById("fptSpindleSpeed");
+
+    const result =
+        document.getElementById("feedPerToothResult");
+
+    const feedRate =
+        parseFloat(feedRateInput.value);
+
+    const numberOfTeeth =
+        parseFloat(numberOfTeethInput.value);
+
+    const spindleSpeed =
+        parseFloat(spindleSpeedInput.value);
+
+    if (
+        feedRateInput.value === "" ||
+        numberOfTeethInput.value === "" ||
+        spindleSpeedInput.value === ""
+    ) {
+        result.textContent =
+            "Please enter all required values.";
+        return;
+    }
+
+    if (feedRate <= 0) {
+        result.textContent =
+            "Feed rate must be greater than 0.";
+        return;
+    }
+
+    if (numberOfTeeth <= 0) {
+        result.textContent =
+            "Number of teeth must be greater than 0.";
+        return;
+    }
+
+    if (spindleSpeed <= 0) {
+        result.textContent =
+            "Spindle speed must be greater than 0.";
+        return;
+    }
+
+    const feedPerTooth =
+        feedRate / (numberOfTeeth * spindleSpeed);
+
+    result.textContent =
+        `${feedPerTooth.toFixed(3)} mm/tooth`;
+}
+
+
 function calculateCuttingSpeed() {
-    const diameter = parseFloat(
-        document.getElementById("cuttingDiameter").value
-    );
+    const diameterInput =
+        document.getElementById("cuttingDiameter");
 
-    const spindleSpeed = parseFloat(
-        document.getElementById("cuttingSpindleSpeed").value
-    );
+    const spindleSpeedInput =
+        document.getElementById("cuttingSpindleSpeed");
 
-    if (diameter <= 0 || spindleSpeed <= 0) {
-        document.getElementById("cuttingResult").textContent =
-            "Enter valid values";
+    const result =
+        document.getElementById("cuttingResult");
+
+    const diameter =
+        parseFloat(diameterInput.value);
+
+    const spindleSpeed =
+        parseFloat(spindleSpeedInput.value);
+
+    if (
+        diameterInput.value === "" ||
+        spindleSpeedInput.value === ""
+    ) {
+        result.textContent =
+            "Please enter all required values.";
+        return;
+    }
+
+    if (diameter <= 0) {
+        result.textContent =
+            "Diameter must be greater than 0.";
+        return;
+    }
+
+    if (spindleSpeed <= 0) {
+        result.textContent =
+            "Spindle speed must be greater than 0.";
         return;
     }
 
     const cuttingSpeed =
         (Math.PI * diameter * spindleSpeed) / 1000;
 
-    document.getElementById("cuttingResult").textContent =
+    result.textContent =
         `${cuttingSpeed.toFixed(1)} m/min`;
 }
 
 
 function calculateMRR() {
-    const widthOfCut = parseFloat(
-        document.getElementById("widthOfCut").value
-    );
+    const widthOfCutInput =
+        document.getElementById("widthOfCut");
 
-    const depthOfCut = parseFloat(
-        document.getElementById("depthOfCut").value
-    );
+    const depthOfCutInput =
+        document.getElementById("depthOfCut");
 
-    const feedRate = parseFloat(
-        document.getElementById("mrrFeedRate").value
-    );
+    const feedRateInput =
+        document.getElementById("mrrFeedRate");
+
+    const result =
+        document.getElementById("mrrResult");
+
+    const widthOfCut =
+        parseFloat(widthOfCutInput.value);
+
+    const depthOfCut =
+        parseFloat(depthOfCutInput.value);
+
+    const feedRate =
+        parseFloat(feedRateInput.value);
 
     if (
-        widthOfCut <= 0 ||
-        depthOfCut <= 0 ||
-        feedRate <= 0
+        widthOfCutInput.value === "" ||
+        depthOfCutInput.value === "" ||
+        feedRateInput.value === ""
     ) {
-        document.getElementById("mrrResult").textContent =
-            "Enter valid values";
+        result.textContent =
+            "Please enter all required values.";
+        return;
+    }
+
+    if (widthOfCut <= 0) {
+        result.textContent =
+            "Width of cut must be greater than 0.";
+        return;
+    }
+
+    if (depthOfCut <= 0) {
+        result.textContent =
+            "Depth of cut must be greater than 0.";
+        return;
+    }
+
+    if (feedRate <= 0) {
+        result.textContent =
+            "Feed rate must be greater than 0.";
         return;
     }
 
     const mrr =
         widthOfCut * depthOfCut * feedRate;
 
-    document.getElementById("mrrResult").textContent =
+    result.textContent =
         `${mrr.toFixed(0)} mm³/min`;
 }
 
 
 function calculateDrillingParameters() {
-    const diameter = parseFloat(
-        document.getElementById("drillDiameter").value
-    );
+    const diameterInput =
+        document.getElementById("drillDiameter");
 
-    const cuttingSpeed = parseFloat(
-        document.getElementById("drillCuttingSpeed").value
-    );
+    const cuttingSpeedInput =
+        document.getElementById("drillCuttingSpeed");
 
-    const feedPerRevolution = parseFloat(
-        document.getElementById("drillFeedPerRevolution").value
-    );
+    const feedPerRevolutionInput =
+        document.getElementById("drillFeedPerRevolution");
+
+    const spindleResult =
+        document.getElementById("drillSpindleResult");
+
+    const feedResult =
+        document.getElementById("drillFeedResult");
+
+    const diameter =
+        parseFloat(diameterInput.value);
+
+    const cuttingSpeed =
+        parseFloat(cuttingSpeedInput.value);
+
+    const feedPerRevolution =
+        parseFloat(feedPerRevolutionInput.value);
 
     if (
-        diameter <= 0 ||
-        cuttingSpeed <= 0 ||
-        feedPerRevolution <= 0
+        diameterInput.value === "" ||
+        cuttingSpeedInput.value === "" ||
+        feedPerRevolutionInput.value === ""
     ) {
-        document.getElementById("drillSpindleResult").textContent =
-            "Enter valid values";
+        spindleResult.textContent =
+            "Please enter all required values.";
 
-        document.getElementById("drillFeedResult").textContent =
-            "Enter valid values";
+        feedResult.textContent =
+            "Please enter all required values.";
+
+        return;
+    }
+
+    if (diameter <= 0) {
+        spindleResult.textContent =
+            "Drill diameter must be greater than 0.";
+
+        feedResult.textContent =
+            "Check drill diameter.";
+
+        return;
+    }
+
+    if (cuttingSpeed <= 0) {
+        spindleResult.textContent =
+            "Cutting speed must be greater than 0.";
+
+        feedResult.textContent =
+            "Check cutting speed.";
+
+        return;
+    }
+
+    if (feedPerRevolution <= 0) {
+        spindleResult.textContent =
+            "Check input values.";
+
+        feedResult.textContent =
+            "Feed per revolution must be greater than 0.";
 
         return;
     }
 
     const spindleSpeed =
-        (1000 * cuttingSpeed) / (Math.PI * diameter);
+        (1000 * cuttingSpeed) /
+        (Math.PI * diameter);
 
     const feedRate =
         feedPerRevolution * spindleSpeed;
 
-    document.getElementById("drillSpindleResult").textContent =
+    spindleResult.textContent =
         `${spindleSpeed.toFixed(0)} RPM`;
 
-    document.getElementById("drillFeedResult").textContent =
+    feedResult.textContent =
         `${feedRate.toFixed(0)} mm/min`;
 }
