@@ -1,35 +1,19 @@
-import math
+import pytest
+
+from calculator.spindle_speed import calculate_spindle_speed
 
 
-def calculate_spindle_speed(cutting_speed, diameter):
-    """
-    Calculate spindle speed for CNC machining.
+def test_calculate_spindle_speed():
+    result = calculate_spindle_speed(100, 150)
 
-    Parameters:
-        cutting_speed (float): Cutting speed in m/min.
-        diameter (float): Tool or workpiece diameter in mm.
-
-    Returns:
-        float: Spindle speed in RPM.
-    """
-
-    if cutting_speed <= 0:
-        raise ValueError("Cutting speed must be greater than zero.")
-
-    if diameter <= 0:
-        raise ValueError("Diameter must be greater than zero.")
-
-    spindle_speed = (1000 * cutting_speed) / (math.pi * diameter)
-
-    return spindle_speed
+    assert result == pytest.approx(477.46, rel=1e-3)
 
 
-if __name__ == "__main__":
-    diameter = 100
-    cutting_speed = 150
+def test_spindle_speed_rejects_zero_diameter():
+    with pytest.raises(ValueError):
+        calculate_spindle_speed(0, 150)
 
-    rpm = calculate_spindle_speed(cutting_speed, diameter)
 
-    print(f"Diameter: {diameter} mm")
-    print(f"Cutting Speed: {cutting_speed} m/min")
-    print(f"Spindle Speed: {rpm:.0f} RPM")
+def test_spindle_speed_rejects_zero_cutting_speed():
+    with pytest.raises(ValueError):
+        calculate_spindle_speed(100, 0)
