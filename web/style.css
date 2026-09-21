@@ -164,6 +164,35 @@ main {
         0 0 0 3px rgba(52, 64, 84, 0.08);
 }
 
+.input-with-unit {
+    display: flex;
+    align-items: stretch;
+}
+
+.input-with-unit input {
+    flex: 1;
+    border-radius: 8px 0 0 8px;
+}
+
+.unit {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 14px;
+
+    background: #f4f6f8;
+    border: 1px solid #cbd2d9;
+    border-left: none;
+
+    border-radius: 0 8px 8px 0;
+
+    color: #667085;
+    font-size: 14px;
+    font-weight: 600;
+
+    white-space: nowrap;
+}
 
 /* Remove number input arrows */
 
