@@ -166,11 +166,13 @@ main {
 
 .input-with-unit {
     display: flex;
+    width: 100%;
     align-items: stretch;
 }
 
 .input-with-unit input {
     flex: 1;
+    width: auto;
     border-radius: 8px 0 0 8px;
 }
 
@@ -179,7 +181,8 @@ main {
     align-items: center;
     justify-content: center;
 
-    padding: 0 14px;
+    min-width: 55px;
+    padding: 0 12px;
 
     background: #f4f6f8;
     border: 1px solid #cbd2d9;
