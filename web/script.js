@@ -51,6 +51,7 @@ function calculateFeedRate() {
     const spindleSpeed =
         parseFloat(spindleSpeedInput.value);
 
+    // Check empty fields
     if (
         feedPerToothInput.value === "" ||
         numberOfTeethInput.value === "" ||
@@ -61,31 +62,34 @@ function calculateFeedRate() {
         return;
     }
 
+    // Check Feed per Tooth
     if (feedPerTooth <= 0) {
         result.textContent =
             "Feed per tooth must be greater than 0.";
         return;
     }
 
+    // Check Number of Teeth
     if (numberOfTeeth <= 0) {
         result.textContent =
             "Number of teeth must be greater than 0.";
         return;
     }
 
+    // Check Spindle Speed
     if (spindleSpeed <= 0) {
         result.textContent =
             "Spindle speed must be greater than 0.";
         return;
     }
 
+    // Calculate Feed Rate
     const feedRate =
         feedPerTooth * numberOfTeeth * spindleSpeed;
 
     result.textContent =
         `${feedRate.toFixed(0)} mm/min`;
 }
-
 
 function calculateFeedPerTooth() {
     const feedRate = parseFloat(
