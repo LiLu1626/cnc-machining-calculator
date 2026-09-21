@@ -101,6 +101,23 @@ main {
     color: #344054;
 }
 
+.parameter-info {
+    margin-bottom: 25px;
+    padding: 12px 14px;
+    background: #ffffff;
+    border-left: 3px solid #cbd2d9;
+}
+
+.parameter-info p {
+    margin: 3px 0;
+    font-size: 13px;
+    color: #667085;
+}
+
+.parameter-info strong {
+    color: #344054;
+}
+
 /* =========================
    Input Groups
 ========================= */
