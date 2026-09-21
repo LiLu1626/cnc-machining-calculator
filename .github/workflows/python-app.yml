@@ -9,7 +9,6 @@ branches: [ "main" ]
 jobs:
 test:
 
-```
 runs-on: ubuntu-latest
 
 steps:
@@ -29,4 +28,3 @@ steps:
 - name: Run tests
   run: |
     pytest
-```
