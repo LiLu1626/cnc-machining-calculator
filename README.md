@@ -11,6 +11,10 @@ Engineering calculators for CNC machining parameters, developed as a practical e
 Try the calculator directly in your browser:
 👉 **https://lilu1626.github.io/cnc-machining-calculator/**
 
+## 📸 Preview
+The calculator provides a simple interface for common CNC machining calculations.
+![CNC Machining Calculator](preview.png)
+
 ---
 
 ## Overview
