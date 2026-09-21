@@ -293,6 +293,26 @@ footer {
     font-size: 14px;
 }
 
+/* Calculator Buttons */
+
+.button-group {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+}
+
+.reset-button {
+    background: #ffffff;
+    color: #344054;
+    border: 1px solid #cbd2d9;
+}
+
+.reset-button:hover {
+    background: #f4f6f8;
+    border-color: #98a2b3;
+    box-shadow: none;
+}
+
 
 /* =========================
    Mobile
@@ -334,3 +354,4 @@ footer {
         padding: 14px;
     }
 }
+
