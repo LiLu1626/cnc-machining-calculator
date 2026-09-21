@@ -23,15 +23,15 @@ function calculateSpindleSpeed() {
 
 function calculateFeedRate() {
     const feedPerTooth = parseFloat(
-        document.getElementById("feedPerTooth").value
+        document.getElementById("feedRatePerTooth").value
     );
 
     const numberOfTeeth = parseFloat(
-        document.getElementById("numberOfTeeth").value
+        document.getElementById("feedRateNumberOfTeeth").value
     );
 
     const spindleSpeed = parseFloat(
-        document.getElementById("feedSpindleSpeed").value
+        document.getElementById("feedRateSpindleSpeed").value
     );
 
     if (
@@ -49,6 +49,37 @@ function calculateFeedRate() {
 
     document.getElementById("feedResult").textContent =
         `${feedRate.toFixed(0)} mm/min`;
+}
+
+
+function calculateFeedPerTooth() {
+    const feedRate = parseFloat(
+        document.getElementById("fptFeedRate").value
+    );
+
+    const numberOfTeeth = parseFloat(
+        document.getElementById("fptNumberOfTeeth").value
+    );
+
+    const spindleSpeed = parseFloat(
+        document.getElementById("fptSpindleSpeed").value
+    );
+
+    if (
+        feedRate <= 0 ||
+        numberOfTeeth <= 0 ||
+        spindleSpeed <= 0
+    ) {
+        document.getElementById("feedPerToothResult").textContent =
+            "Enter valid values";
+        return;
+    }
+
+    const feedPerTooth =
+        feedRate / (numberOfTeeth * spindleSpeed);
+
+    document.getElementById("feedPerToothResult").textContent =
+        `${feedPerTooth.toFixed(3)} mm/tooth`;
 }
 
 
