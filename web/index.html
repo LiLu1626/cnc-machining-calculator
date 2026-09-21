@@ -19,6 +19,7 @@
 
     <main>
 
+        <!-- Spindle Speed Calculator -->
         <section class="calculator-card">
 
             <h2>Spindle Speed</h2>
@@ -53,33 +54,34 @@
         </section>
 
 
+        <!-- Feed Rate Calculator -->
         <section class="calculator-card">
 
             <h2>Feed Rate</h2>
 
             <div class="input-group">
-                <label for="feedPerTooth">Feed per Tooth (mm/tooth)</label>
+                <label for="feedRatePerTooth">Feed per Tooth (mm/tooth)</label>
                 <input
                     type="number"
-                    id="feedPerTooth"
+                    id="feedRatePerTooth"
                     placeholder="Example: 0.10"
                 >
             </div>
 
             <div class="input-group">
-                <label for="numberOfTeeth">Number of Teeth</label>
+                <label for="feedRateNumberOfTeeth">Number of Teeth</label>
                 <input
                     type="number"
-                    id="numberOfTeeth"
+                    id="feedRateNumberOfTeeth"
                     placeholder="Example: 4"
                 >
             </div>
 
             <div class="input-group">
-                <label for="feedSpindleSpeed">Spindle Speed (RPM)</label>
+                <label for="feedRateSpindleSpeed">Spindle Speed (RPM)</label>
                 <input
                     type="number"
-                    id="feedSpindleSpeed"
+                    id="feedRateSpindleSpeed"
                     placeholder="Example: 800"
                 >
             </div>
@@ -96,6 +98,51 @@
         </section>
 
 
+        <!-- Feed per Tooth Calculator -->
+        <section class="calculator-card">
+
+            <h2>Feed per Tooth</h2>
+
+            <div class="input-group">
+                <label for="fptFeedRate">Feed Rate (mm/min)</label>
+                <input
+                    type="number"
+                    id="fptFeedRate"
+                    placeholder="Example: 320"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="fptNumberOfTeeth">Number of Teeth</label>
+                <input
+                    type="number"
+                    id="fptNumberOfTeeth"
+                    placeholder="Example: 4"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="fptSpindleSpeed">Spindle Speed (RPM)</label>
+                <input
+                    type="number"
+                    id="fptSpindleSpeed"
+                    placeholder="Example: 800"
+                >
+            </div>
+
+            <button onclick="calculateFeedPerTooth()">
+                Calculate
+            </button>
+
+            <div class="result">
+                <span>Feed per Tooth:</span>
+                <strong id="feedPerToothResult">---</strong>
+            </div>
+
+        </section>
+
+
+        <!-- Cutting Speed Calculator -->
         <section class="calculator-card">
 
             <h2>Cutting Speed</h2>
@@ -130,6 +177,7 @@
         </section>
 
 
+        <!-- Material Removal Rate Calculator -->
         <section class="calculator-card">
 
             <h2>Material Removal Rate</h2>
