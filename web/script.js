@@ -29,7 +29,7 @@ function calculateSpindleSpeed() {
 }
 
 
-ffunction calculateFeedRate() {
+function calculateFeedRate() {
     const feedPerToothInput =
         document.getElementById("feedRatePerTooth");
 
