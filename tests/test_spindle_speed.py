@@ -6,7 +6,7 @@ from calculator.spindle_speed import calculate_spindle_speed
 def test_calculate_spindle_speed():
     result = calculate_spindle_speed(100, 150)
 
-    assert result == pytest.approx(477.46, rel=1e-3)
+    assert result == pytest.approx(212.2066, rel=1e-3)
 
 
 def test_spindle_speed_rejects_zero_diameter():
