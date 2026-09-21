@@ -1,3 +1,4 @@
+```javascript id="t2c7ma"
 function calculateSpindleSpeed() {
     const diameter = parseFloat(
         document.getElementById("diameter").value
@@ -135,3 +136,45 @@ function calculateMRR() {
     document.getElementById("mrrResult").textContent =
         `${mrr.toFixed(0)} mm³/min`;
 }
+
+
+function calculateDrillingParameters() {
+    const diameter = parseFloat(
+        document.getElementById("drillDiameter").value
+    );
+
+    const cuttingSpeed = parseFloat(
+        document.getElementById("drillCuttingSpeed").value
+    );
+
+    const feedPerRevolution = parseFloat(
+        document.getElementById("drillFeedPerRevolution").value
+    );
+
+    if (
+        diameter <= 0 ||
+        cuttingSpeed <= 0 ||
+        feedPerRevolution <= 0
+    ) {
+        document.getElementById("drillSpindleResult").textContent =
+            "Enter valid values";
+
+        document.getElementById("drillFeedResult").textContent =
+            "Enter valid values";
+
+        return;
+    }
+
+    const spindleSpeed =
+        (1000 * cuttingSpeed) / (Math.PI * diameter);
+
+    const feedRate =
+        feedPerRevolution * spindleSpeed;
+
+    document.getElementById("drillSpindleResult").textContent =
+        `${spindleSpeed.toFixed(0)} RPM`;
+
+    document.getElementById("drillFeedResult").textContent =
+        `${feedRate.toFixed(0)} mm/min`;
+}
+```
