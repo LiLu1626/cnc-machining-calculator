@@ -353,3 +353,50 @@ function calculateDrillingParameters() {
     feedResult.textContent =
         `${feedRate.toFixed(0)} mm/min`;
 }
+
+function resetSpindleSpeed() {
+    document.getElementById("diameter").value = "";
+    document.getElementById("cuttingSpeed").value = "";
+    document.getElementById("spindleResult").textContent = "—";
+}
+
+
+function resetFeedRate() {
+    document.getElementById("feedRatePerTooth").value = "";
+    document.getElementById("feedRateNumberOfTeeth").value = "";
+    document.getElementById("feedRateSpindleSpeed").value = "";
+    document.getElementById("feedResult").textContent = "—";
+}
+
+
+function resetFeedPerTooth() {
+    document.getElementById("fptFeedRate").value = "";
+    document.getElementById("fptNumberOfTeeth").value = "";
+    document.getElementById("fptSpindleSpeed").value = "";
+    document.getElementById("feedPerToothResult").textContent = "—";
+}
+
+
+function resetCuttingSpeed() {
+    document.getElementById("cuttingDiameter").value = "";
+    document.getElementById("cuttingSpindleSpeed").value = "";
+    document.getElementById("cuttingResult").textContent = "—";
+}
+
+
+function resetMRR() {
+    document.getElementById("widthOfCut").value = "";
+    document.getElementById("depthOfCut").value = "";
+    document.getElementById("mrrFeedRate").value = "";
+    document.getElementById("mrrResult").textContent = "—";
+}
+
+
+function resetDrilling() {
+    document.getElementById("drillDiameter").value = "";
+    document.getElementById("drillCuttingSpeed").value = "";
+    document.getElementById("drillFeedPerRevolution").value = "";
+
+    document.getElementById("drillSpindleResult").textContent = "—";
+    document.getElementById("drillFeedResult").textContent = "—";
+}
