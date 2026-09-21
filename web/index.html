@@ -220,6 +220,57 @@
 
         </section>
 
+
+        <!-- Drilling Parameters Calculator -->
+        <section class="calculator-card">
+
+            <h2>Drilling Parameters</h2>
+
+            <div class="input-group">
+                <label for="drillDiameter">Drill Diameter (mm)</label>
+                <input
+                    type="number"
+                    id="drillDiameter"
+                    placeholder="Example: 20"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="drillCuttingSpeed">Cutting Speed (m/min)</label>
+                <input
+                    type="number"
+                    id="drillCuttingSpeed"
+                    placeholder="Example: 25"
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="drillFeedPerRevolution">
+                    Feed per Revolution (mm/rev)
+                </label>
+                <input
+                    type="number"
+                    id="drillFeedPerRevolution"
+                    placeholder="Example: 0.20"
+                >
+            </div>
+
+            <button onclick="calculateDrillingParameters()">
+                Calculate
+            </button>
+
+            <div class="result">
+                <span>Spindle Speed:</span>
+                <strong id="drillSpindleResult">---</strong>
+            </div>
+
+            <div class="result">
+                <span>Feed Rate:</span>
+                <strong id="drillFeedResult">---</strong>
+            </div>
+
+        </section>
+
     </main>
 
 
