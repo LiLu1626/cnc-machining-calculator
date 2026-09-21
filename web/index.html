@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,361 +14,766 @@
 
     <header>
         <h1>CNC Machining Calculator</h1>
-        <p>Engineering tools for CNC machining and process development</p>
+
+        <p>
+            Engineering tools for CNC machining and process development
+        </p>
     </header>
 
 
     <main>
 
+        <!-- ================================================== -->
         <!-- Spindle Speed Calculator -->
+        <!-- ================================================== -->
+
         <section class="calculator-card">
 
             <h2>Spindle Speed</h2>
 
             <div class="formula">
                 <span>Formula</span>
-                <strong>n = (1000 × Vc) / (π × D)</strong>
+
+                <strong>
+                    n = (1000 × Vc) / (π × D)
+                </strong>
             </div>
 
             <div class="parameter-info">
-                <p><strong>n</strong> = Spindle Speed (RPM)</p>
-                <p><strong>Vc</strong> = Cutting Speed (m/min)</p>
-                <p><strong>D</strong> = Diameter (mm)</p>
+
+                <p>
+                    <strong>n</strong> = Spindle Speed (RPM)
+                </p>
+
+                <p>
+                    <strong>Vc</strong> = Cutting Speed (m/min)
+                </p>
+
+                <p>
+                    <strong>D</strong> = Diameter (mm)
+                </p>
+
             </div>
 
+
             <div class="input-group">
-                <label for="diameter">Diameter</label>
-            
+
+                <label for="diameter">
+                    Diameter
+                </label>
+
                 <div class="input-with-unit">
+
                     <input
                         type="number"
                         id="diameter"
                         placeholder="Example: 100"
                     >
-            
-                    <span class="unit">mm</span>
+
+                    <span class="unit">
+                        mm
+                    </span>
+
                 </div>
+
             </div>
 
+
             <div class="input-group">
-                <label for="cuttingSpeed">Cutting Speed</label>
-            
+
+                <label for="cuttingSpeed">
+                    Cutting Speed
+                </label>
+
                 <div class="input-with-unit">
+
                     <input
                         type="number"
                         id="cuttingSpeed"
                         placeholder="Example: 150"
                     >
-            
-                    <span class="unit">m/min</span>
+
+                    <span class="unit">
+                        m/min
+                    </span>
+
                 </div>
+
             </div>
+
 
             <button onclick="calculateSpindleSpeed()">
                 Calculate
             </button>
 
+
             <div class="result">
-                <span>Spindle Speed:</span>
-                <strong id="spindleResult">---</strong>
+
+                <span>
+                    Spindle Speed:
+                </span>
+
+                <strong id="spindleResult">
+                    ---
+                </strong>
+
             </div>
 
         </section>
 
 
+
+        <!-- ================================================== -->
         <!-- Feed Rate Calculator -->
+        <!-- ================================================== -->
+
         <section class="calculator-card">
-        
+
             <h2>Feed Rate</h2>
-        
+
             <div class="formula">
-                <span>Formula</span>
-                <strong>F = fz × z × n</strong>
+
+                <span>
+                    Formula
+                </span>
+
+                <strong>
+                    F = fz × z × n
+                </strong>
+
             </div>
-        
+
+
             <div class="parameter-info">
-                <p><strong>F</strong> = Feed Rate (mm/min)</p>
-                <p><strong>fz</strong> = Feed per Tooth (mm/tooth)</p>
-                <p><strong>z</strong> = Number of Teeth</p>
-                <p><strong>n</strong> = Spindle Speed (RPM)</p>
+
+                <p>
+                    <strong>F</strong> = Feed Rate (mm/min)
+                </p>
+
+                <p>
+                    <strong>fz</strong> = Feed per Tooth (mm/tooth)
+                </p>
+
+                <p>
+                    <strong>z</strong> = Number of Teeth
+                </p>
+
+                <p>
+                    <strong>n</strong> = Spindle Speed (RPM)
+                </p>
+
             </div>
-        
+
+
             <div class="input-group">
-                <label for="feedRatePerTooth">Feed per Tooth</label>
-        
+
+                <label for="feedRatePerTooth">
+                    Feed per Tooth
+                </label>
+
                 <div class="input-with-unit">
+
                     <input
                         type="number"
                         id="feedRatePerTooth"
                         placeholder="Example: 0.10"
                     >
-        
-                    <span class="unit">mm/tooth</span>
+
+                    <span class="unit">
+                        mm/tooth
+                    </span>
+
                 </div>
+
             </div>
-        
+
+
             <div class="input-group">
-                <label for="feedRateNumberOfTeeth">Number of Teeth</label>
-        
+
+                <label for="feedRateNumberOfTeeth">
+                    Number of Teeth
+                </label>
+
                 <input
                     type="number"
                     id="feedRateNumberOfTeeth"
                     placeholder="Example: 4"
                 >
+
             </div>
-        
+
+
             <div class="input-group">
-                <label for="feedRateSpindleSpeed">Spindle Speed</label>
-        
+
+                <label for="feedRateSpindleSpeed">
+                    Spindle Speed
+                </label>
+
                 <div class="input-with-unit">
+
                     <input
                         type="number"
                         id="feedRateSpindleSpeed"
                         placeholder="Example: 800"
                     >
-        
-                    <span class="unit">RPM</span>
+
+                    <span class="unit">
+                        RPM
+                    </span>
+
                 </div>
+
             </div>
-        
+
+
             <button onclick="calculateFeedRate()">
                 Calculate
             </button>
-        
+
+
             <div class="result">
-                <span>Feed Rate:</span>
-                <strong id="feedResult">---</strong>
+
+                <span>
+                    Feed Rate:
+                </span>
+
+                <strong id="feedResult">
+                    ---
+                </strong>
+
             </div>
-        
+
         </section>
 
 
+
+        <!-- ================================================== -->
         <!-- Feed per Tooth Calculator -->
+        <!-- ================================================== -->
+
         <section class="calculator-card">
 
             <h2>Feed per Tooth</h2>
 
             <div class="formula">
-                <span>Formula</span>
-                <strong>fz = F / (z × n)</strong>
+
+                <span>
+                    Formula
+                </span>
+
+                <strong>
+                    fz = F / (z × n)
+                </strong>
+
             </div>
+
 
             <div class="parameter-info">
-                <p><strong>fz</strong> = Feed per Tooth (mm/tooth)</p>
-                <p><strong>F</strong> = Feed Rate (mm/min)</p>
-                <p><strong>z</strong> = Number of Teeth</p>
-                <p><strong>n</strong> = Spindle Speed (RPM)</p>
+
+                <p>
+                    <strong>fz</strong> = Feed per Tooth (mm/tooth)
+                </p>
+
+                <p>
+                    <strong>F</strong> = Feed Rate (mm/min)
+                </p>
+
+                <p>
+                    <strong>z</strong> = Number of Teeth
+                </p>
+
+                <p>
+                    <strong>n</strong> = Spindle Speed (RPM)
+                </p>
+
             </div>
 
-            <div class="input-group">
-                <label for="fptFeedRate">Feed Rate (mm/min)</label>
-                <input
-                    type="number"
-                    id="fptFeedRate"
-                    placeholder="Example: 320"
-                >
-            </div>
 
             <div class="input-group">
-                <label for="fptNumberOfTeeth">Number of Teeth</label>
+
+                <label for="fptFeedRate">
+                    Feed Rate
+                </label>
+
+                <div class="input-with-unit">
+
+                    <input
+                        type="number"
+                        id="fptFeedRate"
+                        placeholder="Example: 320"
+                    >
+
+                    <span class="unit">
+                        mm/min
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="fptNumberOfTeeth">
+                    Number of Teeth
+                </label>
+
                 <input
                     type="number"
                     id="fptNumberOfTeeth"
                     placeholder="Example: 4"
                 >
+
             </div>
 
+
             <div class="input-group">
-                <label for="fptSpindleSpeed">Spindle Speed (RPM)</label>
-                <input
-                    type="number"
-                    id="fptSpindleSpeed"
-                    placeholder="Example: 800"
-                >
+
+                <label for="fptSpindleSpeed">
+                    Spindle Speed
+                </label>
+
+                <div class="input-with-unit">
+
+                    <input
+                        type="number"
+                        id="fptSpindleSpeed"
+                        placeholder="Example: 800"
+                    >
+
+                    <span class="unit">
+                        RPM
+                    </span>
+
+                </div>
+
             </div>
+
 
             <button onclick="calculateFeedPerTooth()">
                 Calculate
             </button>
 
+
             <div class="result">
-                <span>Feed per Tooth:</span>
-                <strong id="feedPerToothResult">---</strong>
+
+                <span>
+                    Feed per Tooth:
+                </span>
+
+                <strong id="feedPerToothResult">
+                    ---
+                </strong>
+
             </div>
 
         </section>
 
 
+
+        <!-- ================================================== -->
         <!-- Cutting Speed Calculator -->
+        <!-- ================================================== -->
+
         <section class="calculator-card">
 
             <h2>Cutting Speed</h2>
 
             <div class="formula">
-                <span>Formula</span>
-                <strong>Vc = (π × D × n) / 1000</strong>
+
+                <span>
+                    Formula
+                </span>
+
+                <strong>
+                    Vc = (π × D × n) / 1000
+                </strong>
+
             </div>
+
 
             <div class="parameter-info">
-                <p><strong>Vc</strong> = Cutting Speed (m/min)</p>
-                <p><strong>D</strong> = Diameter (mm)</p>
-                <p><strong>n</strong> = Spindle Speed (RPM)</p>
+
+                <p>
+                    <strong>Vc</strong> = Cutting Speed (m/min)
+                </p>
+
+                <p>
+                    <strong>D</strong> = Diameter (mm)
+                </p>
+
+                <p>
+                    <strong>n</strong> = Spindle Speed (RPM)
+                </p>
+
             </div>
 
-            <div class="input-group">
-                <label for="cuttingDiameter">Diameter (mm)</label>
-                <input
-                    type="number"
-                    id="cuttingDiameter"
-                    placeholder="Example: 100"
-                >
-            </div>
 
             <div class="input-group">
-                <label for="cuttingSpindleSpeed">Spindle Speed (RPM)</label>
-                <input
-                    type="number"
-                    id="cuttingSpindleSpeed"
-                    placeholder="Example: 800"
-                >
+
+                <label for="cuttingDiameter">
+                    Diameter
+                </label>
+
+                <div class="input-with-unit">
+
+                    <input
+                        type="number"
+                        id="cuttingDiameter"
+                        placeholder="Example: 100"
+                    >
+
+                    <span class="unit">
+                        mm
+                    </span>
+
+                </div>
+
             </div>
+
+
+            <div class="input-group">
+
+                <label for="cuttingSpindleSpeed">
+                    Spindle Speed
+                </label>
+
+                <div class="input-with-unit">
+
+                    <input
+                        type="number"
+                        id="cuttingSpindleSpeed"
+                        placeholder="Example: 800"
+                    >
+
+                    <span class="unit">
+                        RPM
+                    </span>
+
+                </div>
+
+            </div>
+
 
             <button onclick="calculateCuttingSpeed()">
                 Calculate
             </button>
 
+
             <div class="result">
-                <span>Cutting Speed:</span>
-                <strong id="cuttingResult">---</strong>
+
+                <span>
+                    Cutting Speed:
+                </span>
+
+                <strong id="cuttingResult">
+                    ---
+                </strong>
+
             </div>
 
         </section>
 
 
+
+        <!-- ================================================== -->
         <!-- Material Removal Rate Calculator -->
+        <!-- ================================================== -->
+
         <section class="calculator-card">
 
             <h2>Material Removal Rate</h2>
 
             <div class="formula">
-                <span>Formula</span>
-                <strong>MRR = ap × ae × F</strong>
+
+                <span>
+                    Formula
+                </span>
+
+                <strong>
+                    MRR = ap × ae × F
+                </strong>
+
             </div>
+
 
             <div class="parameter-info">
-                <p><strong>MRR</strong> = Material Removal Rate (mm³/min)</p>
-                <p><strong>ap</strong> = Depth of Cut (mm)</p>
-                <p><strong>ae</strong> = Width of Cut (mm)</p>
-                <p><strong>F</strong> = Feed Rate (mm/min)</p>
+
+                <p>
+                    <strong>MRR</strong> = Material Removal Rate (mm³/min)
+                </p>
+
+                <p>
+                    <strong>ap</strong> = Depth of Cut (mm)
+                </p>
+
+                <p>
+                    <strong>ae</strong> = Width of Cut (mm)
+                </p>
+
+                <p>
+                    <strong>F</strong> = Feed Rate (mm/min)
+                </p>
+
             </div>
 
-            <div class="input-group">
-                <label for="widthOfCut">Width of Cut (mm)</label>
-                <input
-                    type="number"
-                    id="widthOfCut"
-                    placeholder="Example: 10"
-                >
-            </div>
 
             <div class="input-group">
-                <label for="depthOfCut">Depth of Cut (mm)</label>
-                <input
-                    type="number"
-                    id="depthOfCut"
-                    placeholder="Example: 2"
-                >
+
+                <label for="widthOfCut">
+                    Width of Cut
+                </label>
+
+                <div class="input-with-unit">
+
+                    <input
+                        type="number"
+                        id="widthOfCut"
+                        placeholder="Example: 10"
+                    >
+
+                    <span class="unit">
+                        mm
+                    </span>
+
+                </div>
+
             </div>
 
+
             <div class="input-group">
-                <label for="mrrFeedRate">Feed Rate (mm/min)</label>
-                <input
-                    type="number"
-                    id="mrrFeedRate"
-                    placeholder="Example: 320"
-                >
+
+                <label for="depthOfCut">
+                    Depth of Cut
+                </label>
+
+                <div class="input-with-unit">
+
+                    <input
+                        type="number"
+                        id="depthOfCut"
+                        placeholder="Example: 2"
+                    >
+
+                    <span class="unit">
+                        mm
+                    </span>
+
+                </div>
+
             </div>
+
+
+            <div class="input-group">
+
+                <label for="mrrFeedRate">
+                    Feed Rate
+                </label>
+
+                <div class="input-with-unit">
+
+                    <input
+                        type="number"
+                        id="mrrFeedRate"
+                        placeholder="Example: 320"
+                    >
+
+                    <span class="unit">
+                        mm/min
+                    </span>
+
+                </div>
+
+            </div>
+
 
             <button onclick="calculateMRR()">
                 Calculate
             </button>
 
+
             <div class="result">
-                <span>Material Removal Rate:</span>
-                <strong id="mrrResult">---</strong>
+
+                <span>
+                    Material Removal Rate:
+                </span>
+
+                <strong id="mrrResult">
+                    ---
+                </strong>
+
             </div>
 
         </section>
 
 
+
+        <!-- ================================================== -->
         <!-- Drilling Parameters Calculator -->
+        <!-- ================================================== -->
+
         <section class="calculator-card">
 
             <h2>Drilling Parameters</h2>
 
+
             <div class="formula">
-                <span>Spindle Speed Formula</span>
-                <strong>n = (1000 × Vc) / (π × D)</strong>
+
+                <span>
+                    Spindle Speed Formula
+                </span>
+
+                <strong>
+                    n = (1000 × Vc) / (π × D)
+                </strong>
+
             </div>
-            
+
+
             <div class="parameter-info">
-                <p><strong>n</strong> = Spindle Speed (RPM)</p>
-                <p><strong>Vc</strong> = Cutting Speed (m/min)</p>
-                <p><strong>D</strong> = Drill Diameter (mm)</p>
+
+                <p>
+                    <strong>n</strong> = Spindle Speed (RPM)
+                </p>
+
+                <p>
+                    <strong>Vc</strong> = Cutting Speed (m/min)
+                </p>
+
+                <p>
+                    <strong>D</strong> = Drill Diameter (mm)
+                </p>
+
             </div>
 
-<div class="formula">
-    <span>Feed Rate Formula</span>
-    <strong>F = fn × n</strong>
-</div>
 
-<div class="parameter-info">
-    <p><strong>F</strong> = Feed Rate (mm/min)</p>
-    <p><strong>fn</strong> = Feed per Revolution (mm/rev)</p>
-    <p><strong>n</strong> = Spindle Speed (RPM)</p>
-</div>
+            <div class="formula">
 
-            <div class="input-group">
-                <label for="drillDiameter">Drill Diameter (mm)</label>
-                <input
-                    type="number"
-                    id="drillDiameter"
-                    placeholder="Example: 20"
-                >
+                <span>
+                    Feed Rate Formula
+                </span>
+
+                <strong>
+                    F = fn × n
+                </strong>
+
             </div>
 
-            <div class="input-group">
-                <label for="drillCuttingSpeed">Cutting Speed (m/min)</label>
-                <input
-                    type="number"
-                    id="drillCuttingSpeed"
-                    placeholder="Example: 25"
-                >
+
+            <div class="parameter-info">
+
+                <p>
+                    <strong>F</strong> = Feed Rate (mm/min)
+                </p>
+
+                <p>
+                    <strong>fn</strong> = Feed per Revolution (mm/rev)
+                </p>
+
+                <p>
+                    <strong>n</strong> = Spindle Speed (RPM)
+                </p>
+
             </div>
 
+
             <div class="input-group">
-                <label for="drillFeedPerRevolution">
-                    Feed per Revolution (mm/rev)
+
+                <label for="drillDiameter">
+                    Drill Diameter
                 </label>
-                <input
-                    type="number"
-                    id="drillFeedPerRevolution"
-                    placeholder="Example: 0.20"
-                >
+
+                <div class="input-with-unit">
+
+                    <input
+                        type="number"
+                        id="drillDiameter"
+                        placeholder="Example: 20"
+                    >
+
+                    <span class="unit">
+                        mm
+                    </span>
+
+                </div>
+
             </div>
+
+
+            <div class="input-group">
+
+                <label for="drillCuttingSpeed">
+                    Cutting Speed
+                </label>
+
+                <div class="input-with-unit">
+
+                    <input
+                        type="number"
+                        id="drillCuttingSpeed"
+                        placeholder="Example: 25"
+                    >
+
+                    <span class="unit">
+                        m/min
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="drillFeedPerRevolution">
+                    Feed per Revolution
+                </label>
+
+                <div class="input-with-unit">
+
+                    <input
+                        type="number"
+                        id="drillFeedPerRevolution"
+                        placeholder="Example: 0.20"
+                    >
+
+                    <span class="unit">
+                        mm/rev
+                    </span>
+
+                </div>
+
+            </div>
+
 
             <button onclick="calculateDrillingParameters()">
                 Calculate
             </button>
 
-            <div class="result">
-                <span>Spindle Speed:</span>
-                <strong id="drillSpindleResult">---</strong>
-            </div>
 
             <div class="result">
-                <span>Feed Rate:</span>
-                <strong id="drillFeedResult">---</strong>
+
+                <span>
+                    Spindle Speed:
+                </span>
+
+                <strong id="drillSpindleResult">
+                    ---
+                </strong>
+
+            </div>
+
+
+            <div class="result">
+
+                <span>
+                    Feed Rate:
+                </span>
+
+                <strong id="drillFeedResult">
+                    ---
+                </strong>
+
             </div>
 
         </section>
@@ -376,11 +782,16 @@
 
 
     <footer>
-        <p>Developed by Li Lu | Machining Development Engineer</p>
+
+        <p>
+            Developed by Li Lu | Machining Development Engineer
+        </p>
+
     </footer>
 
 
     <script src="script.js"></script>
 
 </body>
+
 </html>
