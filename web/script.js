@@ -1,25 +1,3 @@
-function showInputError(input, message) {
-    input.classList.add("input-error");
-
-    const errorMessage =
-        input.closest(".input-group")
-            .querySelector(".input-error-message");
-
-    errorMessage.textContent = message;
-}
-
-
-function clearInputError(input) {
-    input.classList.remove("input-error");
-
-    const errorMessage =
-        input.closest(".input-group")
-            .querySelector(".input-error-message");
-
-    errorMessage.textContent = "";
-}
-
-
 function calculateSpindleSpeed() {
     const diameterInput = document.getElementById("diameter");
     const cuttingSpeedInput = document.getElementById("cuttingSpeed");
@@ -28,28 +6,8 @@ function calculateSpindleSpeed() {
     const diameterValue = diameterInput.value.trim();
     const cuttingSpeedValue = cuttingSpeedInput.value.trim();
 
-    clearInputError(diameterInput);
-    clearInputError(cuttingSpeedInput);
-
-    if (diameterValue === "") {
-        showInputError(
-            diameterInput,
-            "This field is required."
-        );
-    }
-
-    if (cuttingSpeedValue === "") {
-        showInputError(
-            cuttingSpeedInput,
-            "This field is required."
-        );
-    }
-
-    if (
-        diameterValue === "" ||
-        cuttingSpeedValue === ""
-    ) {
-        result.textContent = "—";
+    if (diameterValue === "" || cuttingSpeedValue === "") {
+        result.textContent = "Please enter all required values.";
         return;
     }
 
@@ -57,42 +15,23 @@ function calculateSpindleSpeed() {
     const cuttingSpeed = Number(cuttingSpeedValue);
 
     if (diameter <= 0) {
-        showInputError(
-            diameterInput,
-            "Diameter must be greater than 0."
-        );
-
-        result.textContent = "—";
+        result.textContent = "Diameter must be greater than 0.";
         return;
     }
 
     if (cuttingSpeed <= 0) {
-        showInputError(
-            cuttingSpeedInput,
-            "Cutting speed must be greater than 0."
-        );
-
-        result.textContent = "—";
+        result.textContent = "Cutting speed must be greater than 0.";
         return;
     }
 
     const spindleSpeed =
-        (1000 * cuttingSpeed) /
-        (Math.PI * diameter);
+        (1000 * cuttingSpeed) / (Math.PI * diameter);
 
     result.textContent =
         `${spindleSpeed.toFixed(0)} RPM`;
 }
 
 
-document.getElementById("diameter").addEventListener("input", function () {
-    clearInputError(this);
-});
-
-
-document.getElementById("cuttingSpeed").addEventListener("input", function () {
-    clearInputError(this);
-});
 function calculateFeedRate() {
     const feedPerToothInput =
         document.getElementById("feedRatePerTooth");
