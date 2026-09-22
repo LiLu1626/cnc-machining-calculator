@@ -402,26 +402,5 @@ function resetDrilling() {
     document.getElementById("drillFeedResult").textContent = "—";
 }
 
-document.getElementById("diameter").addEventListener("input", function () {
-    this.classList.remove("input-error");
-
-    const errorMessage =
-        this.closest(".input-group")
-            .querySelector(".input-error-message");
-
-    errorMessage.textContent = "";
-});
-
-
-document.getElementById("cuttingSpeed").addEventListener("input", function () {
-    this.classList.remove("input-error");
-
-    const errorMessage =
-        this.closest(".input-group")
-            .querySelector(".input-error-message");
-
-    errorMessage.textContent = "";
-});
-
 
 
