@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://lilu1626.github.io/cnc-machining-calculator/sitemap.xml
