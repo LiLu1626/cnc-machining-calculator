@@ -1,3 +1,13 @@
+function clearInputError(input) {
+    input.classList.remove("input-error");
+
+    const errorMessage =
+        input.closest(".input-group")
+            .querySelector(".input-error-message");
+
+    errorMessage.textContent = "";
+}
+
 function calculateSpindleSpeed() {
     const diameterInput = document.getElementById("diameter");
     const cuttingSpeedInput = document.getElementById("cuttingSpeed");
@@ -31,6 +41,13 @@ function calculateSpindleSpeed() {
         `${spindleSpeed.toFixed(0)} RPM`;
 }
 
+document.getElementById("diameter").addEventListener("input", function () {
+    clearInputError(this);
+});
+
+document.getElementById("cuttingSpeed").addEventListener("input", function () {
+    clearInputError(this);
+});
 
 function calculateFeedRate() {
     const feedPerToothInput =
