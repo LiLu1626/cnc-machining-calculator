@@ -401,6 +401,3 @@ function resetDrilling() {
     document.getElementById("drillSpindleResult").textContent = "—";
     document.getElementById("drillFeedResult").textContent = "—";
 }
-
-
-
