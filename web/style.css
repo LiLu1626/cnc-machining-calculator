@@ -338,6 +338,24 @@ footer {
     box-shadow: none;
 }
 
+/* =========================
+   SEO Introduction
+========================= */
+
+.seo-intro {
+    max-width: 900px;
+    margin: 0 auto 35px;
+    text-align: center;
+}
+
+.seo-intro h2 {
+    margin-bottom: 12px;
+}
+
+.seo-intro p {
+    margin: 0;
+    line-height: 1.7;
+}
 
 /* =========================
    Mobile
