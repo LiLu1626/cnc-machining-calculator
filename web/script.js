@@ -731,3 +731,17 @@ document.getElementById("drillSpindleResult").textContent = "—";
 document.getElementById("drillFeedResult").textContent = "—";
 
 }
+
+/* ==================================================
+Clear Input Error While Typing
+================================================== */
+
+document.querySelectorAll(".input-group input").forEach(function (input) {
+
+    input.addEventListener("input", function () {
+
+        clearInputError(this);
+
+    });
+
+});
